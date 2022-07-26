@@ -36,7 +36,7 @@ In an account with a lots of EOS, you can set a permission called
 accounting department, and set a "waits" of 24h (to for a delay on
 transactions, with the option to cancel them if found to be unlawful)
 
-You then set the "eosio.token::transfer" action to be assigned to that
+You then set the "zswhq.token::transfer" action to be assigned to that
 permission.  Now you have delegated the possibility to transfer coins
 to the accounting department, but kept all other privileges with the
 "active" key (which, if the "accounting" permission has "active" as

@@ -60,7 +60,7 @@ func init() {
 	RootCmd.PersistentFlags().BoolP("skip-sign", "", false, "Do not sign the transaction. Use with --write-transaction.")
 	RootCmd.PersistentFlags().IntP("expiration", "", 30, "Set time before transaction expires, in seconds. Defaults to 30 seconds.")
 	RootCmd.PersistentFlags().IntP("delay-sec", "", 0, "Set time to wait before transaction is executed, in seconds. Defaults to 0 second.")
-	RootCmd.PersistentFlags().BoolP("sudo-wrap", "", false, "Wrap the transaction in a eosio.sudo exec. Useful to BPs, with --write-transaction and --skip-sign to then submit as a multisig proposition.")
+	RootCmd.PersistentFlags().BoolP("sudo-wrap", "", false, "Wrap the transaction in a zswhq.sudo exec. Useful to BPs, with --write-transaction and --skip-sign to then submit as a multisig proposition.")
 }
 
 func initConfig() {

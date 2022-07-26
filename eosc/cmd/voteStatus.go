@@ -19,8 +19,8 @@ var voteStatusCmd = &cobra.Command{
 		response, err := api.GetTableRows(
 			context.Background(),
 			eos.GetTableRowsRequest{
-				Code:       "eosio",
-				Scope:      "eosio",
+				Code:       "zswhq",
+				Scope:      "zswhq",
 				Table:      "voters",
 				JSON:       true,
 				LowerBound: string(voterName),

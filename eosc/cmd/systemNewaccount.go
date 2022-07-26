@@ -145,5 +145,5 @@ func init() {
 	systemNewAccountCmd.Flags().IntP("buy-ram-kbytes", "", 8, "The amount of RAM kibibytes (KiB) to purchase for the new account.  Defaults to 8 KiB.")
 	systemNewAccountCmd.Flags().StringP("buy-ram", "", "", "The amount of EOS to spend to buy RAM for the new account (at current EOS/RAM market price)")
 	systemNewAccountCmd.Flags().BoolP("transfer", "", false, "Transfer voting power and right to unstake EOS to receiver")
-	systemNewAccountCmd.Flags().BoolP("setpriv", "", false, "Make this account a privileged account (reserved to the 'eosio' system account)")
+	systemNewAccountCmd.Flags().BoolP("setpriv", "", false, "Make this account a privileged account (reserved to the 'zswhq' system account)")
 }

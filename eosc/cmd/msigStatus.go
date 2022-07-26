@@ -13,7 +13,7 @@ import (
 
 var msigStatusCmd = &cobra.Command{
 	Use:   "status [proposer] [proposal name]",
-	Short: "Shows the status of a given proposal and its approvals in the eosio.msig contract.",
+	Short: "Shows the status of a given proposal and its approvals in the zswhq.msig contract.",
 	Args:  cobra.ExactArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
 		api := getAPI()
@@ -24,7 +24,7 @@ var msigStatusCmd = &cobra.Command{
 		response, err := api.GetTableRows(
 			context.Background(),
 			eos.GetTableRowsRequest{
-				Code:       "eosio.msig",
+				Code:       "zswhq.msig",
 				Scope:      string(proposer),
 				Table:      "approvals",
 				JSON:       true,

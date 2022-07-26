@@ -59,8 +59,8 @@ func getForumVotesRows(api *eos.API, contract eos.AccountName, proposalName eos.
 	// 		Code:       string(contract),
 	// 		Scope:      string(contract),
 	// 		Table:      string("vote"),
-	// 		Index:      "sec",  // Secondary Index `by_proposal` - https://github.com/eoscanada/eosio.forum/blob/master/include/forum.hpp#L99-L115
-	// 		KeyType:    "i128", // `by_proposal` is uint128 - Compute as https://github.com/eoscanada/eosio.forum/blob/master/include/forum.hpp#L72-L74
+	// 		Index:      "sec",  // Secondary Index `by_proposal` - https://github.com/eoscanada/zswhq.forum/blob/master/include/forum.hpp#L99-L115
+	// 		KeyType:    "i128", // `by_proposal` is uint128 - Compute as https://github.com/eoscanada/zswhq.forum/blob/master/include/forum.hpp#L72-L74
 	// 		LowerBound: "first",
 	// 		Limit:      1000,
 	// 		JSON:       true,
@@ -76,7 +76,7 @@ func getForumVotesRows(api *eos.API, contract eos.AccountName, proposalName eos.
 
 	// 	for _, vote := range votes {
 	// 		// TODO: optimize with getting only the bare minimum, like:
-	// 		// cleosk get table eosio eosio voters -L cancancan234 --limit 1
+	// 		// cleosk get table zswhq zswhq voters -L cancancan234 --limit 1
 	// 		acctResp, err := api.GetAccount(entry.vote.Voter)
 	// 		if err != nil {
 	// 			return nil, err

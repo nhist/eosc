@@ -122,8 +122,8 @@ func getCoreSymbol() eos.Symbol {
 
 func initCoreSymbol() error {
 	resp, err := getAPI().GetTableRows(context.Background(), eos.GetTableRowsRequest{
-		Code:  "eosio",
-		Scope: "eosio",
+		Code:  "zswhq",
+		Scope: "zswhq",
 		Table: "rammarket",
 		JSON:  true,
 	})
@@ -240,7 +240,7 @@ func pushEOSCActionsAndContextFreeActions(ctx context.Context, api *eos.API, con
 
 func optionallySudoWrap(tx *eos.Transaction, opts *eos.TxOptions) *eos.Transaction {
 	if viper.GetBool("global-sudo-wrap") {
-		return eos.NewTransaction([]*eos.Action{sudo.NewExec(eos.AccountName("eosio"), *tx)}, opts)
+		return eos.NewTransaction([]*eos.Action{sudo.NewExec(eos.AccountName("zswhq"), *tx)}, opts)
 	}
 	return tx
 }

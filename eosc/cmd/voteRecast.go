@@ -21,8 +21,8 @@ var voteRecastCmd = &cobra.Command{
 		response, err := api.GetTableRows(
 			ctx,
 			eos.GetTableRowsRequest{
-				Code:       "eosio",
-				Scope:      "eosio",
+				Code:       "zswhq",
+				Scope:      "zswhq",
 				Table:      "voters",
 				JSON:       true,
 				LowerBound: string(voterName),

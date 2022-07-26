@@ -33,5 +33,5 @@ func init() {
 	RootCmd.AddCommand(transferCmd)
 
 	transferCmd.Flags().StringP("memo", "m", "", "Memo to attach to the transfer.")
-	transferCmd.Flags().StringP("contract", "", "eosio.token", "Contract to send the transfer through. eosio.token is the contract dealing with the native EOS token.")
+	transferCmd.Flags().StringP("contract", "", "zswhq.token", "Contract to send the transfer through. zswhq.token is the contract dealing with the native EOS token.")
 }

@@ -20,8 +20,8 @@ import (
 // msigProposeCmd represents the msigPropose command
 var msigProposeCmd = &cobra.Command{
 	Use:   "propose [proposer] [proposal name] [transaction_file.json]",
-	Short: "Propose a new transaction in the eosio.msig contract",
-	Long: `Propose a new transaction in the eosio.msig contract
+	Short: "Propose a new transaction in the zswhq.msig contract",
+	Long: `Propose a new transaction in the zswhq.msig contract
 
 Don't forget '--request' to list authorities needed to approve this
 transaction.
@@ -119,8 +119,8 @@ func getProducersTable(ctx context.Context, api *eos.API) (prods producers, err 
 		response, err := api.GetTableRows(
 			ctx,
 			eos.GetTableRowsRequest{
-				Scope:      "eosio",
-				Code:       "eosio",
+				Scope:      "zswhq",
+				Code:       "zswhq",
 				Table:      "producers",
 				JSON:       true,
 				LowerBound: lowerBound,

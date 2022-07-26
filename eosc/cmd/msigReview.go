@@ -15,7 +15,7 @@ import (
 
 var msigReviewCmd = &cobra.Command{
 	Use:   "review [proposer] [proposal name]",
-	Short: "Review a proposal in the eosio.msig contract",
+	Short: "Review a proposal in the zswhq.msig contract",
 	Args:  cobra.ExactArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
 		api := getAPI()
@@ -26,7 +26,7 @@ var msigReviewCmd = &cobra.Command{
 		response, err := api.GetTableRows(
 			context.Background(),
 			eos.GetTableRowsRequest{
-				Code:       "eosio.msig",
+				Code:       "zswhq.msig",
 				Scope:      string(proposer),
 				Table:      "proposal",
 				JSON:       true,

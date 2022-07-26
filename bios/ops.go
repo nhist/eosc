@@ -160,8 +160,8 @@ func (op *OpCreateVoters) Actions(b *BIOS) (out []*eos.Action, err error) {
 		fmt.Println("Creating voter: ", voterName)
 		out = append(out, system.NewNewAccount(op.Creator, voterName, pubKey))
 		out = append(out, token.NewTransfer(op.Creator, voterName, eos.NewEOSAsset(1000000000), ""))
-		out = append(out, system.NewBuyRAMBytes(AN("eosio"), voterName, 8192)) // 8kb gift !
-		out = append(out, system.NewDelegateBW(AN("eosio"), voterName, eos.NewEOSAsset(10000), eos.NewEOSAsset(10000), true))
+		out = append(out, system.NewBuyRAMBytes(AN("zswhq"), voterName, 8192)) // 8kb gift !
+		out = append(out, system.NewDelegateBW(AN("zswhq"), voterName, eos.NewEOSAsset(10000), eos.NewEOSAsset(10000), true))
 
 	}
 
@@ -265,17 +265,17 @@ func (op *OpSnapshotCreateAccounts) Actions(b *BIOS) (out []*eos.Action, err err
 			destPubKey = wellKnownPubkey
 		}
 
-		out = append(out, system.NewNewAccount(AN("eosio"), destAccount, destPubKey))
+		out = append(out, system.NewNewAccount(AN("zswhq"), destAccount, destPubKey))
 
 		cpuStake, netStake, rest := splitSnapshotStakes(hodler.Balance)
 
 		// special case `transfer` for `b1` ?
-		out = append(out, system.NewDelegateBW(AN("eosio"), destAccount, cpuStake, netStake, true))
-		out = append(out, system.NewBuyRAMBytes(AN("eosio"), destAccount, uint32(op.BuyRAMBytes)))
+		out = append(out, system.NewDelegateBW(AN("zswhq"), destAccount, cpuStake, netStake, true))
+		out = append(out, system.NewBuyRAMBytes(AN("zswhq"), destAccount, uint32(op.BuyRAMBytes)))
 		out = append(out, nil) // end transaction
 
 		memo := "Welcome " + hodler.EthereumAddress[len(hodler.EthereumAddress)-6:]
-		out = append(out, token.NewTransfer(AN("eosio"), destAccount, rest, memo), nil)
+		out = append(out, token.NewTransfer(AN("zswhq"), destAccount, rest, memo), nil)
 	}
 
 	return
@@ -342,11 +342,11 @@ func (op *OpInjectUnregdSnapshot) Actions(b *BIOS) (out []*eos.Action, err error
 			}
 		}
 
-		//system.NewDelegatedNewAccount(AN("eosio"), AN(hodler.AccountName), AN("eosio.unregd"))
+		//system.NewDelegatedNewAccount(AN("zswhq"), AN(hodler.AccountName), AN("zswhq.unregd"))
 
 		out = append(out,
 			unregd.NewAdd(hodler.EthereumAddress, hodler.Balance),
-			token.NewTransfer(AN("eosio"), AN("eosio.unregd"), hodler.Balance, "Future claim"),
+			token.NewTransfer(AN("zswhq"), AN("zswhq.unregd"), hodler.Balance, "Future claim"),
 			nil,
 		)
 	}
@@ -387,7 +387,7 @@ func (op *OpSetProds) Actions(b *BIOS) (out []*eos.Action, err error) {
 
 	if len(prodKeys) == 0 {
 		prodKeys = []system.ProducerKey{system.ProducerKey{
-			ProducerName:    AN("eosio"),
+			ProducerName:    AN("zswhq"),
 			BlockSigningKey: b.EphemeralPublicKey,
 		}}
 	}
@@ -415,13 +415,13 @@ func (op *OpResignAccounts) Actions(b *BIOS) (out []*eos.Action, err error) {
 		return
 	}
 
-	systemAccount := AN("eosio")
-	prodsAccount := AN("eosio.prods") // this is a special system account that is granted by 2/3 + 1 of the current BP schedule.
+	systemAccount := AN("zswhq")
+	prodsAccount := AN("zswhq.prods") // this is a special system account that is granted by 2/3 + 1 of the current BP schedule.
 
-	eosioPresent := false
+	zswhqPresent := false
 	for _, acct := range op.Accounts {
 		if acct == systemAccount {
-			eosioPresent = true
+			zswhqPresent = true
 			continue
 		}
 
@@ -431,7 +431,7 @@ func (op *OpResignAccounts) Actions(b *BIOS) (out []*eos.Action, err error) {
 				Accounts: []eos.PermissionLevelWeight{
 					eos.PermissionLevelWeight{
 						Permission: eos.PermissionLevel{
-							Actor:      AN("eosio"),
+							Actor:      AN("zswhq"),
 							Permission: PN("active"),
 						},
 						Weight: 1,
@@ -443,7 +443,7 @@ func (op *OpResignAccounts) Actions(b *BIOS) (out []*eos.Action, err error) {
 				Accounts: []eos.PermissionLevelWeight{
 					eos.PermissionLevelWeight{
 						Permission: eos.PermissionLevel{
-							Actor:      AN("eosio"),
+							Actor:      AN("zswhq"),
 							Permission: PN("active"),
 						},
 						Weight: 1,
@@ -453,7 +453,7 @@ func (op *OpResignAccounts) Actions(b *BIOS) (out []*eos.Action, err error) {
 		)
 	}
 
-	if eosioPresent {
+	if zswhqPresent {
 		out = append(out,
 			system.NewUpdateAuth(systemAccount, PN("active"), PN("owner"), eos.Authority{
 				Threshold: 1,

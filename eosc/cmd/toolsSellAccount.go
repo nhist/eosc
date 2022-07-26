@@ -81,7 +81,7 @@ MAKE SURE TO INSPECT THE GENERATED MULTISIG TRANSACTION BEFORE APPROVING IT.
 		}, &eos.TxOptions{HeadBlockID: infoResp.HeadBlockID})
 		tx.SetExpiration(viper.GetDuration("tools-sell-account-cmd-sale-expiration"))
 
-		fmt.Println("Submitting `eosio.msig` proposal:")
+		fmt.Println("Submitting `zswhq.msig` proposal:")
 		fmt.Printf("  proposer: %s\n", soldAccount)
 		fmt.Printf("  proposal_name: %s\n", proposalName)
 		fmt.Println("If this transaction is successful, have the other party approve and execute the multisig proposal to an atomic swap.")
@@ -98,9 +98,9 @@ func init() {
 	toolsCmd.AddCommand(toolsSellAccountCmd)
 
 	toolsSellAccountCmd.Flags().StringP("memo", "", "", "Memo message to attach to transfer")
-	toolsSellAccountCmd.Flags().StringP("proposal-name", "", "sellaccount", "Proposal name to use in the eosio.msig contract")
-	toolsSellAccountCmd.Flags().StringP("buyer-permission", "", "", "Permission required of the buyer (to authorized 'eosio.token::transfer')")
-	toolsSellAccountCmd.Flags().StringP("seller-permission", "", "", "Permission required of the seller (you, to authorize 'eosio::updateauth')")
+	toolsSellAccountCmd.Flags().StringP("proposal-name", "", "sellaccount", "Proposal name to use in the zswhq.msig contract")
+	toolsSellAccountCmd.Flags().StringP("buyer-permission", "", "", "Permission required of the buyer (to authorized 'zswhq.token::transfer')")
+	toolsSellAccountCmd.Flags().StringP("seller-permission", "", "", "Permission required of the seller (you, to authorize 'zswhq::updateauth')")
 	toolsSellAccountCmd.Flags().DurationP("sale-expiration", "", 1*time.Hour, "Expire proposed transaction after this amount of time (30m, 1h, etc..)")
 }
 

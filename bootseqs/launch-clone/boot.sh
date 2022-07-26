@@ -20,7 +20,7 @@ cp base_config.ini config.ini
 echo "Writing genesis.json"
 echo $1 > genesis.json
 
-echo "producer-name = eosio" >> config.ini
+echo "producer-name = zswhq" >> config.ini
 echo "enable-stale-production = true" >> config.ini
 echo "signature-provider = $2=KEY:$3" >> config.ini
 
@@ -32,7 +32,7 @@ docker run -ti --rm --detach --name nodeos-bios \
        -v `pwd`:/etc/nodeos -v /tmp/nodeos-data:/data \
        -p 8888:8888 -p 9876:9876 \
        eoscanada/eos:v1.0.1 \
-       /opt/eosio/bin/nodeos --data-dir=/data \
+       /opt/zswhq/bin/nodeos --data-dir=/data \
                              --config-dir=/etc/nodeos \
                              --genesis-json=/etc/nodeos/genesis.json
 

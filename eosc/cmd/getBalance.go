@@ -35,6 +35,6 @@ var getBalanceCmd = &cobra.Command{
 func init() {
 	getCmd.AddCommand(getBalanceCmd)
 
-	getBalanceCmd.Flags().StringP("contract", "", "eosio.token", "Account managing the token")
+	getBalanceCmd.Flags().StringP("contract", "", "zswhq.token", "Account managing the token")
 	getBalanceCmd.Flags().StringP("symbol", "", "", "Only query this symbol. Try EOS")
 }

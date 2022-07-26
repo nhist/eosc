@@ -37,7 +37,7 @@ eosc get table
 eosc get info
 eosc get block
 eosc get actions
-eosc get balance [account]  - better than `get currency balance eosio.token [account]`  darn!
+eosc get balance [account]  - better than `get currency balance zswhq.token [account]`  darn!
 
 #eosc set code
 #eosc set abi
@@ -145,7 +145,7 @@ script: ./run.sh
 
 * eosc nodeos run, pick up some ports, pass in some config (from `eosc-test.yaml`
 * eosc test
-  * runs a vault with `New Vault`, and boots the chain with that PrivKey, belongs to EOSIO
+  * runs a vault with `New Vault`, and boots the chain with that PrivKey, belongs to zswhq
   * vault litsen on :6668, sets
 * run `run.sh`, set ENV: `EOSC_GLOBAL_WALLET_URL=http://localhost:6668
 
@@ -171,8 +171,8 @@ eosc tx sign ./fixtures/megatx_test.json
 eosc system newaccount
 eosc system setcontract bob.wasm bob.abi
 
-eosc tx create eosio setprods '{"prods": "eoscanadacom"}'
-eosc get table eosio eosio producers -L 123 | jq -r .1.name
+eosc tx create zswhq setprods '{"prods": "eoscanadacom"}'
+eosc get table zswhq zswhq producers -L 123 | jq -r .1.name
 
 eosc nodeos production pause
 eosc nodeos production resume
@@ -183,7 +183,7 @@ eosc pitreos backup ./nodeos-data -t lastbomb -meta '{"block_id": $BLOCKNUM}'
 
 eosc nodeos run (through docker)
 
-eosc assert table-contents eosio producers ./table_contents.json
+eosc assert table-contents zswhq producers ./table_contents.json
 
 
 # Implicit teardown.  Shutdown `nodeos`, you can restart it with `eosc nodeos run`

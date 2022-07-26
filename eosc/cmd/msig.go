@@ -9,7 +9,7 @@ import (
 // msigCmd represents the msig command
 var msigCmd = &cobra.Command{
 	Use:   "multisig",
-	Short: "eosio.msig contract interactions",
+	Short: "zswhq.msig contract interactions",
 }
 
 func init() {

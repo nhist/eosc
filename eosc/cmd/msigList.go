@@ -14,7 +14,7 @@ import (
 
 var msigListCmd = &cobra.Command{
 	Use:   "list [proposer]",
-	Short: "Shows the list of all active proposals for a given proposer in the eosio.msig contract.",
+	Short: "Shows the list of all active proposals for a given proposer in the zswhq.msig contract.",
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		ctx := context.Background()
@@ -25,7 +25,7 @@ var msigListCmd = &cobra.Command{
 		response, err := api.GetTableRows(
 			ctx,
 			eos.GetTableRowsRequest{
-				Code:  "eosio.msig",
+				Code:  "zswhq.msig",
 				Scope: string(proposer),
 				Table: "proposal",
 				JSON:  true,
@@ -58,7 +58,7 @@ var msigListCmd = &cobra.Command{
 		response, err = api.GetTableRows(
 			ctx,
 			eos.GetTableRowsRequest{
-				Code:  "eosio.msig",
+				Code:  "zswhq.msig",
 				Scope: string(proposer),
 				Table: "approvals",
 				JSON:  true,

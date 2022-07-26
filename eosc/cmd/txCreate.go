@@ -54,7 +54,7 @@ var txCreateCmd = &cobra.Command{
 
 func newNonceAction() *eos.Action {
 	return &eos.Action{
-		Account: eos.AN("eosio.null"),
+		Account: eos.AN("zswhq.null"),
 		Name:    eos.ActN("nonce"),
 		ActionData: eos.NewActionData(system.Nonce{
 			Value: hex.EncodeToString(generateRandomNonce()),

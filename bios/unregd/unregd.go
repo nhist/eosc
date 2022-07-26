@@ -4,10 +4,10 @@ import "github.com/eoscanada/eos-go"
 
 func NewAdd(ethAccount string, balance eos.Asset) *eos.Action {
 	action := &eos.Action{
-		Account: eos.AccountName("eosio.unregd"),
+		Account: eos.AccountName("zswhq.unregd"),
 		Name:    eos.ActionName("add"),
 		Authorization: []eos.PermissionLevel{
-			{eos.AccountName("eosio.unregd"), eos.PermissionName("active")},
+			{eos.AccountName("zswhq.unregd"), eos.PermissionName("active")},
 		},
 		ActionData: eos.NewActionData(Add{
 			EthereumAddress: ethAccount,

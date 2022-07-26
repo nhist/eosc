@@ -15,5 +15,5 @@ var forumCmd = &cobra.Command{
 func init() {
 	RootCmd.AddCommand(forumCmd)
 
-	forumCmd.PersistentFlags().String("target-contract", "eosio.forum", "Target account hosting the eosio.forum code")
+	forumCmd.PersistentFlags().String("target-contract", "zswhq.forum", "Target account hosting the zswhq.forum code")
 }

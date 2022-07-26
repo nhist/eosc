@@ -9,10 +9,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// msigExecCmd represents the `eosio.msig::exec` command
+// msigExecCmd represents the `zswhq.msig::exec` command
 var msigExecCmd = &cobra.Command{
 	Use:   "exec [proposer] [proposal name] [executer]",
-	Short: "Execute a transaction in the eosio.msig contract",
+	Short: "Execute a transaction in the zswhq.msig contract",
 	Args:  cobra.ExactArgs(3),
 	Run: func(cmd *cobra.Command, args []string) {
 		api := getAPI()

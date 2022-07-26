@@ -194,7 +194,7 @@ This will output:
   "context_free_actions": [],
   "actions": [
     {
-      "account": "eosio.token",
+      "account": "zswhq.token",
       "name": "transfer",
       "authorization": [
         {
@@ -240,7 +240,7 @@ Enter passphrase to decrypt your vault:
   "context_free_actions": [],
   "actions": [
     {
-      "account": "eosio.token",
+      "account": "zswhq.token",
       "name": "transfer",
       "authorization": [
         {

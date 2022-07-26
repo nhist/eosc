@@ -30,3 +30,4 @@ require (
 )
 
 go 1.13
+replace github.com/eoscanada/eos-go => github.com/nhist/zswchain-go v3.0.0

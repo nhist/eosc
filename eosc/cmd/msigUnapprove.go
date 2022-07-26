@@ -9,10 +9,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// msigUnapproveCmd represents the `eosio.msig::unapprove` command
+// msigUnapproveCmd represents the `zswhq.msig::unapprove` command
 var msigUnapproveCmd = &cobra.Command{
 	Use:   "unapprove [proposer] [proposal name] [actor@permission]",
-	Short: "Unapprove a transaction in the eosio.msig contract",
+	Short: "Unapprove a transaction in the zswhq.msig contract",
 	Args:  cobra.ExactArgs(3),
 	Run: func(cmd *cobra.Command, args []string) {
 		api := getAPI()
